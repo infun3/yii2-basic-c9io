@@ -1,4 +1,5 @@
 #!/bin/bash
+read -p "creating user $HGUSER what password should i set?" yii2passwd
 composer global require "fxp/composer-asset-plugin:^1.3.1"
 composer create-project --repository=composer.json
 
@@ -20,7 +21,6 @@ composer require dektrium/yii2-user
 php yii migrate/up --migrationPath=@vendor/dektrium/yii2-user/migrations --interactive=0
 
 # CREATE USER
-read -p "creating user $HGUSER what password should i set?" yii2passwd
 ./yii user/create $C9_EMAIL $HGUSER $yii2passwd
 
 #install phpmyadmin
